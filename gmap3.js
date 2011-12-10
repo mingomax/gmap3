@@ -2167,6 +2167,20 @@
       }
     }
     
+    /**
+     * trigger events on the map 
+     **/
+    this.trigger = function(todo, internal){
+      var i, name = ival(todo, 'name', null);
+      if (name !== null){
+        name = array(name);
+        for(i=0; i<name.length; i++){
+          google.maps.event.trigger(map, name[i]);
+        }
+      }
+      this._manageEnd(map, todo, internal);
+    }
+    
   };
   
   //-----------------------------------------------------------------------//
