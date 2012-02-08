@@ -1554,7 +1554,6 @@
             $.extend(
               true, 
               atodo, 
-              ctodo, 
               { options:{
                   pane: 'overlayLayer',
                   content:styles[m].content.replace('CLUSTER_COUNT', cluster.idx.length),
@@ -1563,7 +1562,8 @@
                     y: -h/2
                   }
                 }
-              }
+              },
+              ctodo
             );
             obj = this._addOverlay(atodo, toLatLng(cluster), true);
             atodo.options.pane = 'floatShadow';
