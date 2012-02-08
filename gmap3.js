@@ -2048,6 +2048,7 @@
         tag = array(tag);
       }
       store.clear(list, last, first, tag);
+      this._callback(true, todo);
       this._end();
     }
     
