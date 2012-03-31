@@ -1764,13 +1764,15 @@
         $.each( ("dblclick click mouseover mousemove mouseout mouseup mousedown").split(" "), function( i, name ) {
           listeners.push(
             google.maps.event.addDomListener($div[0], name, function(e) {
-              google.maps.event.trigger(that, name);
+              $.Event(e).stopPropagation();
+              google.maps.event.trigger(that, name, [e]);
             })
           );
         });
         listeners.push(
           google.maps.event.addDomListener($div[0], "contextmenu", function(e) {
-            google.maps.event.trigger(that, "rightclick");
+            $.Event(e).stopPropagation();
+            google.maps.event.trigger(that, "rightclick", [e]);
           })
         );
       }
